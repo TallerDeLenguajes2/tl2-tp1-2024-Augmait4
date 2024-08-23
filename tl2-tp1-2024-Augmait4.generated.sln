@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tl2-tp1-2024-Augmait4", "tl2-tp1-2024-Augmait4.csproj", "{EEF1AC22-AB76-4A31-9539-DD603F591119}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEF1AC22-AB76-4A31-9539-DD603F591119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF1AC22-AB76-4A31-9539-DD603F591119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF1AC22-AB76-4A31-9539-DD603F591119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF1AC22-AB76-4A31-9539-DD603F591119}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73BA9E9A-864C-4CEE-8C44-853277C52333}
+	EndGlobalSection
+EndGlobal
