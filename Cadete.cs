@@ -10,7 +10,11 @@ namespace cadete
         
         private List<Pedido>listaPedidos;
 
-        public List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
+        public Cadete()
+        {
+            this.listaPedidos = new List<Pedido>();
+        }
+
         public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Direccion { get => direccion; set => direccion = value; }
