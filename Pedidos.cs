@@ -1,6 +1,4 @@
-using cliente;
-namespace pedidos
-{    enum Estados
+enum Estados
     {
         procesamiento,
         enCamino,
@@ -24,5 +22,10 @@ namespace pedidos
         public string verDireccionCliente(){
             return cliente.Direccion;
         }
+        public void verDatoCliente(Cliente cliente){
+            Console.WriteLine(cliente.Nombre);
+            Console.WriteLine(cliente.Direccion);
+            Console.WriteLine(cliente.RefDirecc);
+            Console.WriteLine(cliente.Cel);
+        }
     }
-}

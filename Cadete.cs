@@ -1,6 +1,3 @@
-using pedidos;
-namespace cadete
-{
     public class Cadete
     {
         private int id;
@@ -20,4 +17,3 @@ namespace cadete
         public string Direccion { get => direccion; set => direccion = value; }
         public string Tel { get => tel; set => tel = value; }
     }
-}

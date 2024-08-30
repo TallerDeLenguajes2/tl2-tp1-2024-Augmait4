@@ -1,5 +1,4 @@
-namespace cliente
-{
+
 public class Cliente
 {
     private string nombre;
@@ -12,4 +11,3 @@ public class Cliente
         public string Direccion { get => direccion; set => direccion = value; }
         public string RefDirecc { get => refDirecc; set => refDirecc = value; }
     }
-}

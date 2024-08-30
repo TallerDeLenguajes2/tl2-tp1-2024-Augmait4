@@ -1,8 +1,4 @@
 
-using cadete;
-
-namespace cadeteria
-{
     public class Cadeteria
     {
         private string nombre;
@@ -16,6 +12,8 @@ namespace cadeteria
 
         public string Nombre { get => nombre; set => nombre = value; }
         public string Tel { get => tel; set => tel = value; }
-        
+        public float JornalACobrar(int idCadete){
+            float jornalCobrar=0;
+            return jornalCobrar;
+        }        
     }
-}
