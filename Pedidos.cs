@@ -1,31 +1,36 @@
-enum Estados
+public class Pedidos
+{
+    public enum estados
     {
-        procesamiento,
-        enCamino,
-        entregado,
+        Pendiente,
+        Asignado,
+        Entregado,
+        Cancelado,
     }
-    public class Pedido
+    private int nro;
+    private string obs;
+    private Cliente cliente;
+    private estados EstadoPedido;
+
+    public Pedidos(int nro, string obs, Cliente cliente, estados estadoPedido)
     {
-        private int nro;
-        private string obs;
-        private Cliente cliente;
-
-        public Pedido(string nombre, string cel, string direcc, string refdirecc)
-        {
-            this.cliente = new Cliente(){
-                Nombre = nombre, Cel = cel, Direccion = direcc, RefDirecc = refdirecc,
-            };
-        }
-
-        public int Nro { get => nro; set => nro = value; }
-        public string Obs { get => obs; set => obs = value; }
-        public string verDireccionCliente(){
-            return cliente.Direccion;
-        }
-        public void verDatoCliente(Cliente cliente){
-            Console.WriteLine(cliente.Nombre);
-            Console.WriteLine(cliente.Direccion);
-            Console.WriteLine(cliente.RefDirecc);
-            Console.WriteLine(cliente.Cel);
-        }
+        this.nro = nro;
+        this.obs = obs;
+        this.cliente = cliente;
+        EstadoPedido = estadoPedido;
     }
+
+    public int Nro { get => nro; set => nro = value; }
+    public string Obs { get => obs; set => obs = value; }
+    public Cliente Cliente { get => cliente; set => cliente = value; }
+    public estados EstadoPedido1 { get => EstadoPedido; set => EstadoPedido = value; }
+    public String VerDireccionCliente()
+    {
+        return Cliente.Direccion;
+    }
+    public string VerDatosCliente( Cliente cliente)
+    {
+        string Datos = "Nombre: "+ cliente.Nombre + " Direccion: " + cliente.Direccion + " Telefono: " + cliente.Telefono;
+        return Datos;
+    }
+}

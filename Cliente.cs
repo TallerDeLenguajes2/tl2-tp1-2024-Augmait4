@@ -1,13 +1,20 @@
-
 public class Cliente
 {
     private string nombre;
-    private string cel;
     private string direccion;
-    private string refDirecc;
+    private string telefono;
+    private string refDir;
 
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Cel { get => cel; set => cel = value; }
-        public string Direccion { get => direccion; set => direccion = value; }
-        public string RefDirecc { get => refDirecc; set => refDirecc = value; }
+    public Cliente(string nombre, string direccion, string telefono, string refDir)
+    {
+        this.Nombre = nombre;
+        this.Direccion = direccion;
+        this.Telefono = telefono;
+        this.RefDir = refDir;
     }
+
+    public string Nombre { get => nombre; set => nombre = value; }
+    public string Direccion { get => direccion; set => direccion = value; }
+    public string Telefono { get => telefono; set => telefono = value; }
+    public string RefDir { get => refDir; set => refDir = value; }
+}
