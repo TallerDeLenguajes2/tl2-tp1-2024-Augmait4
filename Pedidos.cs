@@ -1,36 +1,34 @@
-public class Pedidos
+class Pedidos
 {
-    public enum estados
+    enum Estados
     {
-        Pendiente,
-        Asignado,
-        Entregado,
-        Cancelado,
+        enCamino,
+        Entregado
     }
-    private int nro;
-    private string obs;
+    private int numero;
+    private string observacion;
     private Cliente cliente;
-    private estados EstadoPedido;
+    private Estados estado;
 
-    public Pedidos(int nro, string obs, Cliente cliente, estados estadoPedido)
-    {
-        this.nro = nro;
-        this.obs = obs;
-        this.cliente = cliente;
-        EstadoPedido = estadoPedido;
-    }
+    public int Numero { get => numero; set => numero = value; }
+    public string Observacion { get => observacion; set => observacion = value; }
+    internal Cliente Cliente { get => cliente; set => cliente = value; }
+    private Estados Estado { get => estado; set => estado = value; }
 
-    public int Nro { get => nro; set => nro = value; }
-    public string Obs { get => obs; set => obs = value; }
-    public Cliente Cliente { get => cliente; set => cliente = value; }
-    public estados EstadoPedido1 { get => EstadoPedido; set => EstadoPedido = value; }
-    public String VerDireccionCliente()
+    public Pedidos(int nro, string obs)
     {
-        return Cliente.Direccion;
+        this.Numero = nro;
+        this.Observacion = obs;
+        this.Estado = Estados.enCamino;
     }
-    public string VerDatosCliente( Cliente cliente)
+    private void verDireccionCliente(Cliente cliente)
     {
-        string Datos = "Nombre: "+ cliente.Nombre + " Direccion: " + cliente.Direccion + " Telefono: " + cliente.Telefono;
-        return Datos;
+        Console.WriteLine(cliente.Direccion);
+    }
+    public void verDatosCliente(Cliente cliente){
+        Console.WriteLine("Nombre: " + cliente.Nombre);
+        verDireccionCliente(cliente);
+        Console.WriteLine("Telefono: " + cliente.Telefono);
+        Console.WriteLine("Datos de Referencia De Direccion: " + cliente.DatosReferenciaDireccion);
     }
 }
