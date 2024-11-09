@@ -31,4 +31,7 @@ class Pedidos
         Console.WriteLine("Telefono: " + cliente.Telefono);
         Console.WriteLine("Datos de Referencia De Direccion: " + cliente.DatosReferenciaDireccion);
     }
+    public Pedidos darDeAltaPedido(){
+        
+    }
 }
