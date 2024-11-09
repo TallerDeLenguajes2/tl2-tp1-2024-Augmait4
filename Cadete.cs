@@ -1,4 +1,4 @@
-class Cadete
+public class Cadete
 {
     private int id;
     private string nombre;
@@ -12,7 +12,7 @@ class Cadete
     public string Telefono { get => telefono; set => telefono = value; }
     internal List<Pedidos> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
-    Cadete (int id, string nom, string dir, string tel){
+    public Cadete (int id, string nom, string dir, string tel){
         this.Id = id;
         this.Nombre = nom;
         this.Direccion = dir;

@@ -1,4 +1,4 @@
-class Pedidos
+public class Pedidos
 {
     enum Estados
     {
@@ -27,11 +27,28 @@ class Pedidos
     }
     public void verDatosCliente(Cliente cliente){
         Console.WriteLine("Nombre: " + cliente.Nombre);
+        Console.Write("Direccion: ");
         verDireccionCliente(cliente);
         Console.WriteLine("Telefono: " + cliente.Telefono);
         Console.WriteLine("Datos de Referencia De Direccion: " + cliente.DatosReferenciaDireccion);
     }
-    public Pedidos darDeAltaPedido(){
-        
+    public void mostrarPedido(){
+        Console.WriteLine($"Nro: {Numero}");
+        Console.WriteLine($"Observacion: {Observacion}");
+        Console.WriteLine($"Estado: {Estado}");
+        Console.WriteLine($"Cliente: ");
+        verDatosCliente(Cliente);
+    }
+    public static Pedidos darDeAltaPedido(Cliente cliente){
+        Pedidos datosPedido = new Pedidos(0, "");
+        Console.WriteLine("Ingresar Numero De Pedido: ");
+        datosPedido.Numero = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Ingresar Observacion Del Pedido: ");
+        datosPedido.Observacion = Console.ReadLine();
+        datosPedido.Cliente = cliente;
+        return datosPedido;
+    }
+    public static void cambiarEstado(Pedidos pedido){
+        pedido.Estado = Estados.Entregado;
     }
 }
