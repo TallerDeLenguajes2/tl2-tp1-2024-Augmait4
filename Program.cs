@@ -169,7 +169,7 @@ class Program
                                         foreach (var cadete in cadetes)
                                         {
                                                 int pedidoEntregados = cadete.ListadoPedidos.Where(p => p.Estado == Pedidos.Estados.Entregado).Count();
-                                                int pagoDelDia = pedidoEntregados * 500;
+                                                int pagoDelDia = cadete.jornalACobrar(pedidoEntregados);
                                                 if (pedidoEntregados == 0)
                                                 {
                                                         Console.WriteLine("No ha Realizado ninguna Entrega.");
