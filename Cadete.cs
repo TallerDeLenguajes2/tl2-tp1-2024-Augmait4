@@ -22,4 +22,11 @@ public class Cadete
     public void agregarPedido(Pedidos pedido){
         listadoPedidos.Add(pedido);
     }
+    public void datosCadete(){
+        Console.WriteLine("*****CADETE*****");
+        Console.WriteLine($"ID: {Id}");
+        Console.WriteLine($"Nombre: {Nombre}");
+        Console.WriteLine($"Direccion: {Direccion}");
+        Console.WriteLine($"Telefono: {Telefono}");
+    }
 }

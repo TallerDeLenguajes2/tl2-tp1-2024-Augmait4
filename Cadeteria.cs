@@ -8,10 +8,14 @@ public class Cadeteria
     public string Telefono { get => telefono; set => telefono = value; }
     internal List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
 
-    public Cadeteria (string nom, string tel){
-    this.Nombre = nom;
-    this.Telefono = tel;
-    this.ListadoCadetes = new List<Cadete>();
+    public Cadeteria(string nom, string tel)
+    {
+        this.Nombre = nom;
+        this.Telefono = tel;
+        this.ListadoCadetes = new List<Cadete>();
     }
-    
+    public void agregarCadete(Cadete cadete)
+    {
+        listadoCadetes.Add(cadete);
+    }
 }

@@ -5,7 +5,7 @@ using System.IO;
 using System.ComponentModel;
 public class leerDatos
 {
-    public static List<Cadeteria> CargarCadeteria(string filePath)
+    public static Cadeteria CargarCadeteria(string filePath)
     {
         var cadeterias = new List<Cadeteria>();
         if (!File.Exists(filePath))
@@ -23,11 +23,10 @@ public class leerDatos
                 int id = int.Parse(values[0]);
                 string nombre = values[1];
                 string telefono = values[2];
-                cadeterias.Add(new Cadeteria(nombre, telefono));
-                line = reader.ReadLine();
+                return new Cadeteria(nombre, telefono);
             }
+            return null;
         }
-        return cadeterias;
     }
     public static List<Cadete> CargarCadetes(string filePath)
     {

@@ -1,6 +1,6 @@
 public class Pedidos
 {
-    enum Estados
+    public enum Estados
     {
         enCamino,
         Entregado
@@ -13,7 +13,7 @@ public class Pedidos
     public int Numero { get => numero; set => numero = value; }
     public string Observacion { get => observacion; set => observacion = value; }
     internal Cliente Cliente { get => cliente; set => cliente = value; }
-    private Estados Estado { get => estado; set => estado = value; }
+    public Estados Estado { get => estado; set => estado = value; }
 
     public Pedidos(int nro, string obs)
     {
@@ -23,29 +23,30 @@ public class Pedidos
     }
     private void verDireccionCliente(Cliente cliente)
     {
-        Console.WriteLine(cliente.Direccion);
+        Console.WriteLine("\t" + cliente.Direccion);
     }
     public void verDatosCliente(Cliente cliente){
-        Console.WriteLine("Nombre: " + cliente.Nombre);
-        Console.Write("Direccion: ");
+        Console.WriteLine("\tNombre: " + cliente.Nombre);
+        Console.Write("\tDireccion: ");
         verDireccionCliente(cliente);
-        Console.WriteLine("Telefono: " + cliente.Telefono);
-        Console.WriteLine("Datos de Referencia De Direccion: " + cliente.DatosReferenciaDireccion);
+        Console.WriteLine("\tTelefono: " + cliente.Telefono);
+        Console.WriteLine("\tDatos de Referencia De Direccion: " + cliente.DatosReferenciaDireccion);
     }
     public void mostrarPedido(){
         Console.WriteLine($"Nro: {Numero}");
         Console.WriteLine($"Observacion: {Observacion}");
         Console.WriteLine($"Estado: {Estado}");
+        Console.WriteLine("");
         Console.WriteLine($"Cliente: ");
         verDatosCliente(Cliente);
     }
-    public static Pedidos darDeAltaPedido(Cliente cliente){
+    public static Pedidos darDeAltaPedido(){
         Pedidos datosPedido = new Pedidos(0, "");
         Console.WriteLine("Ingresar Numero De Pedido: ");
         datosPedido.Numero = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Ingresar Observacion Del Pedido: ");
         datosPedido.Observacion = Console.ReadLine();
-        datosPedido.Cliente = cliente;
+        datosPedido.Cliente = Cliente.darDeAltaCliente();
         return datosPedido;
     }
     public static void cambiarEstado(Pedidos pedido){
