@@ -9,12 +9,12 @@ public class Pedidos
     private string observacion;
     private Cliente cliente;
     private Estados estado;
-
+    private Cadete cadetes;
     public int Numero { get => numero; set => numero = value; }
     public string Observacion { get => observacion; set => observacion = value; }
     internal Cliente Cliente { get => cliente; set => cliente = value; }
     public Estados Estado { get => estado; set => estado = value; }
-
+    public Cadete Cadetes { get => cadetes; set => cadetes = value; }
     public Pedidos(int nro, string obs)
     {
         this.Numero = nro;
@@ -25,14 +25,16 @@ public class Pedidos
     {
         Console.WriteLine("\t" + cliente.Direccion);
     }
-    public void verDatosCliente(Cliente cliente){
+    public void verDatosCliente(Cliente cliente)
+    {
         Console.WriteLine("\tNombre: " + cliente.Nombre);
         Console.Write("\tDireccion: ");
         verDireccionCliente(cliente);
         Console.WriteLine("\tTelefono: " + cliente.Telefono);
         Console.WriteLine("\tDatos de Referencia De Direccion: " + cliente.DatosReferenciaDireccion);
     }
-    public void mostrarPedido(){
+    public void mostrarPedido()
+    {
         Console.WriteLine($"Nro: {Numero}");
         Console.WriteLine($"Observacion: {Observacion}");
         Console.WriteLine($"Estado: {Estado}");
@@ -40,7 +42,8 @@ public class Pedidos
         Console.WriteLine($"Cliente: ");
         verDatosCliente(Cliente);
     }
-    public static Pedidos darDeAltaPedido(){
+    public static Pedidos darDeAltaPedido()
+    {
         Pedidos datosPedido = new Pedidos(0, "");
         Console.WriteLine("Ingresar Numero De Pedido: ");
         datosPedido.Numero = Convert.ToInt32(Console.ReadLine());
@@ -49,7 +52,8 @@ public class Pedidos
         datosPedido.Cliente = Cliente.darDeAltaCliente();
         return datosPedido;
     }
-    public static void cambiarEstado(Pedidos pedido){
+    public static void cambiarEstado(Pedidos pedido)
+    {
         pedido.Estado = Estados.Entregado;
     }
 }

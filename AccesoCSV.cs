@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.ComponentModel;
-public class leerDatos
+public class AccesoCSV : AccesoADatos
 {
-    public static Cadeteria CargarCadeteria(string filePath)
+    public override  Cadeteria AccesoADatosCSV(string filePath)
     {
         var cadeterias = new List<Cadeteria>();
         if (!File.Exists(filePath))
@@ -28,7 +28,7 @@ public class leerDatos
             return null;
         }
     }
-    public static List<Cadete> CargarCadetes(string filePath)
+    public override List<Cadete> cargarCadetes(string filePath)
     {
         var cadetes = new List<Cadete>();
         if (!File.Exists(filePath))
