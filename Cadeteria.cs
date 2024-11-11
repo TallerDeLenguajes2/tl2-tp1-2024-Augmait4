@@ -6,11 +6,12 @@ public class Cadeteria
     private string telefono;
     private List<Cadete> listadoCadetes;
     private List<Pedidos> listadoPedidos;
-    public string Nombre { get => nombre; set => nombre = value; }
-    public string Telefono { get => telefono; set => telefono = value; }
+    public string Nombre { get => nombre;  set => nombre = value; }
+    public string Telefono { get => telefono;  set => telefono = value; }
     internal List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
     public List<Pedidos> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
+    public Cadeteria() { }
     public Cadeteria(string nom, string tel)
     {
         this.Nombre = nom;

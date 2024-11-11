@@ -1,16 +1,26 @@
-﻿
+﻿namespace EspacioCadeteria;
 class Program
 {
         static void Main()
         {
+                Cadeteria cadeteria = null;
                 int decision = -1;
                 int numeroPedido;
                 int numeroCadete;
-                Cadeteria cadeteria = leerDatos.CargarCadeteria(@"C:\Users\augus\Documents\Facultad\Taller-de-Lenguaje-II\tl2-tp1-2024-Augmait4\cadeteria.csv");
-                List<Cadete> cadetes = leerDatos.CargarCadetes(@"C:\Users\augus\Documents\Facultad\Taller-de-Lenguaje-II\tl2-tp1-2024-Augmait4\cadetes.csv");
-                foreach (var cadete in cadetes)
+                var archivoJson = new AccesoJson();
+                var archivoCvs = new AccesoCSV();
+                Console.WriteLine("elija como cargar los datos\n1:Json\n2:CVS");
+                int opcionArchivo = int.Parse(Console.ReadLine());
+                if (opcionArchivo == 1)
                 {
-                        cadeteria.agregarCadete(cadete);
+                        cadeteria = archivoJson.LeerCadeteria(@"C:\Users\augus\OneDrive\Documents\Estudios Facultad\Taller de Lenguajes II\tl2-tp1-2024-Augmait4\cadeteria.json");
+                        cadeteria.ListadoCadetes = archivoJson.LeerCadetes(@"C:\Users\augus\OneDrive\Documents\Estudios Facultad\Taller de Lenguajes II\tl2-tp1-2024-Augmait4\cadetes.json");
+
+                }
+                if (opcionArchivo == 2)
+                {
+                        cadeteria = archivoCvs.LeerCadeteria(@"C:\Users\augus\OneDrive\Documents\Estudios Facultad\Taller de Lenguajes II\tl2-tp1-2024-Augmait4\cadeteria.csv");
+                        cadeteria.ListadoCadetes = archivoCvs.LeerCadetes(@"C:\Users\augus\OneDrive\Documents\Estudios Facultad\Taller de Lenguajes II\tl2-tp1-2024-Augmait4\cadetes.csv");
                 }
                 // pedido1.mostrarPedido();
                 // Console.WriteLine();

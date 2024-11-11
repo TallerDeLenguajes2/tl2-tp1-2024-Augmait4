@@ -1,5 +1,6 @@
-public abstract class AccesoADatos
+namespace EspacioCadeteria;
+public interface AccesoDatos
 {
-    public abstract Cadeteria AccesoADatosCSV(string filePath);
-    public abstract List<Cadete> cargarCadetes(string filePath);
+    List<Cadete> LeerCadetes(string nombreArchivo);
+    Cadeteria LeerCadeteria(string nombreArchivo);
 }

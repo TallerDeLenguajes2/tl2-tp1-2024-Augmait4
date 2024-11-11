@@ -3,9 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.ComponentModel;
-public class AccesoCSV : AccesoADatos
+namespace EspacioCadeteria;
+public class AccesoCSV : AccesoDatos
 {
-    public override  Cadeteria AccesoADatosCSV(string filePath)
+    public   Cadeteria LeerCadeteria(string filePath)
     {
         var cadeterias = new List<Cadeteria>();
         if (!File.Exists(filePath))
@@ -28,7 +29,7 @@ public class AccesoCSV : AccesoADatos
             return null;
         }
     }
-    public override List<Cadete> cargarCadetes(string filePath)
+    public  List<Cadete> LeerCadetes(string filePath)
     {
         var cadetes = new List<Cadete>();
         if (!File.Exists(filePath))

@@ -1,0 +1,20 @@
+[
+    {
+        "Id": 1,
+        "Nombre": "Maita",
+        "Direccion": "Monteros123",
+        "Telefono": "3863123412"
+    },
+    {
+        "Id": 2,
+        "Nombre": "Mendoza",
+        "Direccion": "Monteros321",
+        "Telefono": "3863123442"
+    },
+    {
+        "Id": 3,
+        "Nombre": "Lazarte",
+        "Direccion": "SanMiguel399",
+        "Telefono": "3811232993"
+    }
+]
