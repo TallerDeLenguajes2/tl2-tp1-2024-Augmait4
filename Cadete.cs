@@ -18,12 +18,4 @@ public class Cadete
         this.Direccion = dir;
         this.Telefono = tel;
     }
-    public void datosCadete()
-    {
-        Console.WriteLine("*****CADETE*****");
-        Console.WriteLine($"ID: {Id}");
-        Console.WriteLine($"Nombre: {Nombre}");
-        Console.WriteLine($"Direccion: {Direccion}");
-        Console.WriteLine($"Telefono: {Telefono}");
-    }
 }

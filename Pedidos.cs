@@ -5,6 +5,7 @@ public class Pedidos
         enCamino,
         Entregado
     }
+    private static int contadorPedidos = 0;
     private int numero;
     private string observacion;
     private Cliente cliente;
@@ -15,41 +16,25 @@ public class Pedidos
     internal Cliente Cliente { get => cliente; set => cliente = value; }
     public Estados Estado { get => estado; set => estado = value; }
     public Cadete Cadetes { get => cadetes; set => cadetes = value; }
-    public Pedidos(int nro, string obs)
+    public Pedidos(string obs)
     {
-        this.Numero = nro;
+        this.Numero = GenerarNumeroPedido();
         this.Observacion = obs;
         this.Estado = Estados.enCamino;
     }
-    private void verDireccionCliente(Cliente cliente)
+    private static int GenerarNumeroPedido()
     {
-        Console.WriteLine("\t" + cliente.Direccion);
+        contadorPedidos++; // Incrementar el contador
+        return contadorPedidos; // Retornar el número generado
     }
-    public void verDatosCliente(Cliente cliente)
+
+    private string verDireccionCliente(Cliente cliente)
     {
-        Console.WriteLine("\tNombre: " + cliente.Nombre);
-        Console.Write("\tDireccion: ");
-        verDireccionCliente(cliente);
-        Console.WriteLine("\tTelefono: " + cliente.Telefono);
-        Console.WriteLine("\tDatos de Referencia De Direccion: " + cliente.DatosReferenciaDireccion);
+        return cliente.Direccion;
     }
-    public void mostrarPedido()
+    public static Pedidos darDeAltaPedido(string obs)
     {
-        Console.WriteLine($"Nro: {Numero}");
-        Console.WriteLine($"Observacion: {Observacion}");
-        Console.WriteLine($"Estado: {Estado}");
-        Console.WriteLine("");
-        Console.WriteLine($"Cliente: ");
-        verDatosCliente(Cliente);
-    }
-    public static Pedidos darDeAltaPedido()
-    {
-        Pedidos datosPedido = new Pedidos(0, "");
-        Console.WriteLine("Ingresar Numero De Pedido: ");
-        datosPedido.Numero = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Ingresar Observacion Del Pedido: ");
-        datosPedido.Observacion = Console.ReadLine();
-        datosPedido.Cliente = Cliente.darDeAltaCliente();
+        Pedidos datosPedido = new Pedidos(obs);
         return datosPedido;
     }
     public static void cambiarEstado(Pedidos pedido)

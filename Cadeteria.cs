@@ -6,8 +6,8 @@ public class Cadeteria
     private string telefono;
     private List<Cadete> listadoCadetes;
     private List<Pedidos> listadoPedidos;
-    public string Nombre { get => nombre;  set => nombre = value; }
-    public string Telefono { get => telefono;  set => telefono = value; }
+    public string Nombre { get => nombre; set => nombre = value; }
+    public string Telefono { get => telefono; set => telefono = value; }
     internal List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
     public List<Pedidos> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
@@ -19,20 +19,27 @@ public class Cadeteria
         this.ListadoCadetes = new List<Cadete>();
         this.listadoPedidos = new List<Pedidos>();
     }
-    public void agregarCadete(Cadete cadete)
+    public void agregarCadete(string nombre, string telefono, string direccion, int id)
     {
-        listadoCadetes.Add(cadete);
+        Cadete nuevoCadete = new Cadete { Nombre = nombre, Telefono = telefono, Direccion = direccion, Id = id };
+        listadoCadetes.Add(nuevoCadete);
     }
-    public void agregarPedido(Pedidos pedido)
+    public void agregarPedido(string observacion, string clienteNom, string clienteDir, string clienteTel, string clienteDatRefDir, int posicionCadete)
     {
-        ListadoPedidos.Add(pedido);
+        Cliente nuevoCliente = null;
+        nuevoCliente = Cliente.darDeAltaCliente(clienteNom, clienteDir, clienteTel, clienteDatRefDir);
+        Pedidos nuevoPedido = null;
+        nuevoPedido = new Pedidos(nuevoPedido.Observacion = observacion);
+        nuevoPedido.Cadetes = ListadoCadetes[posicionCadete];
+        nuevoPedido.Cliente = nuevoCliente;
+        ListadoPedidos.Add(nuevoPedido);
     }
     public int jornalACobrar(int idCadete)
     {
         int pagoDelDia = listadoPedidos.Count(lp => lp.Cadetes.Id == idCadete && lp.Estado == Pedidos.Estados.Entregado) * 500;
         return pagoDelDia;
     }
-    public void AsignarCadeteAPedido(int idCadete, int nroPedido)
+    public string AsignarCadeteAPedido(int idCadete, int nroPedido)
     {
         var cadeteSeleccionado = listadoCadetes.FirstOrDefault(lc => lc.Id == idCadete);
         if (cadeteSeleccionado != null)
@@ -41,15 +48,16 @@ public class Cadeteria
             if (pedidoSeleccionado != null)
             {
                 pedidoSeleccionado.Cadetes = cadeteSeleccionado;
+                return "Asignacion Correcta";
             }
             else
             {
-                Console.WriteLine("No se encontró el pedido con el número especificado.");
+                return "No se encontró el pedido con el número especificado.";
             }
         }
         else
         {
-            Console.WriteLine("No se encontró el cadete con el ID especificado.");
+            return "No se encontró el cadete con el ID especificado.";
         }
     }
 }
