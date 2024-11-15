@@ -11,7 +11,6 @@ public class AccesoCSV : AccesoDatos
         var cadeterias = new List<Cadeteria>();
         if (!File.Exists(filePath))
         {
-            Console.WriteLine($"Error: El archivo '{filePath}' no existe.");
             return null;
         }
         using (var reader = new StreamReader(filePath))
@@ -34,7 +33,6 @@ public class AccesoCSV : AccesoDatos
         var cadetes = new List<Cadete>();
         if (!File.Exists(filePath))
         {
-            Console.WriteLine($"Error: El archivo '{filePath}' no existe.");
             return null;
         }
         using (var reader = new StreamReader(filePath))

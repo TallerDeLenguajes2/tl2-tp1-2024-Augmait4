@@ -33,9 +33,6 @@ public class AccesoJson : AccesoDatos
             }
         }
 
-        Console.WriteLine("Contenido del archivo JSON:");
-        Console.WriteLine(cadenaCadetes);
-
         var cadetes = JsonSerializer.Deserialize<List<Cadete>>(cadenaCadetes);
         return cadetes;
     }
