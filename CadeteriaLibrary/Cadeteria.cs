@@ -11,13 +11,16 @@ public class Cadeteria
     internal List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
     public List<Pedidos> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
-    public Cadeteria() { }
+    public Cadeteria()
+    {
+        this.ListadoCadetes = new List<Cadete>();
+        this.listadoPedidos = new List<Pedidos>();
+    }
     public Cadeteria(string nom, string tel)
     {
         this.Nombre = nom;
         this.Telefono = tel;
-        this.ListadoCadetes = new List<Cadete>();
-        this.listadoPedidos = new List<Pedidos>();
+
     }
     public void agregarCadete(string nombre, string telefono, string direccion, int id)
     {
@@ -26,13 +29,28 @@ public class Cadeteria
     }
     public void agregarPedido(string observacion, string clienteNom, string clienteDir, string clienteTel, string clienteDatRefDir, int posicionCadete)
     {
-        Cliente nuevoCliente = null;
-        nuevoCliente = Cliente.darDeAltaCliente(clienteNom, clienteDir, clienteTel, clienteDatRefDir);
-        Pedidos nuevoPedido = null;
-        nuevoPedido = new Pedidos(nuevoPedido.Observacion = observacion);
-        nuevoPedido.Cadetes = ListadoCadetes[posicionCadete];
-        nuevoPedido.Cliente = nuevoCliente;
-        ListadoPedidos.Add(nuevoPedido);
+    // Validar que la lista de cadetes esté inicializada y la posición sea válida
+    if (ListadoCadetes == null || posicionCadete < 0 || posicionCadete >= ListadoCadetes.Count)
+    {
+        throw new ArgumentOutOfRangeException(nameof(posicionCadete), "Posición de cadete no válida.");
+    }
+
+    // Crear el cliente
+    Cliente nuevoCliente = Cliente.darDeAltaCliente(clienteNom, clienteDir, clienteTel, clienteDatRefDir);
+
+    // Crear el pedido con un número autonumérico y la observación
+    Pedidos nuevoPedido = new Pedidos( observacion)
+    {
+        Cadetes = ListadoCadetes[posicionCadete],
+        Cliente = nuevoCliente
+    };
+
+    // Agregar el pedido a la lista
+    if (ListadoPedidos == null)
+    {
+        ListadoPedidos = new List<Pedidos>();
+    }
+    ListadoPedidos.Add(nuevoPedido);
     }
     public int jornalACobrar(int idCadete)
     {

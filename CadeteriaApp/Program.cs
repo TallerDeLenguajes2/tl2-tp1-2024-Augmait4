@@ -13,14 +13,14 @@ class Program
         int opcionArchivo = int.Parse(Console.ReadLine());
         if (opcionArchivo == 1)
         {
-            cadeteria = archivoJson.LeerCadeteria(@"C:\Users\augus\OneDrive\Documents\Estudios Facultad\Taller de Lenguajes II\tl2-tp1-2024-Augmait4\JSOM\cadeteria.json");
-            cadeteria.ListadoCadetes = archivoJson.LeerCadetes(@"C:\Users\augus\OneDrive\Documents\Estudios Facultad\Taller de Lenguajes II\tl2-tp1-2024-Augmait4\JSON\cadetes.json");
+            cadeteria = archivoJson.LeerCadeteria(@"C:\Users\augus\Documents\Facultad\Taller-de-Lenguaje-II\tl2-tp1-2024-Augmait4\JSON\cadeteria.json");
+            cadeteria.ListadoCadetes = archivoJson.LeerCadetes(@"C:\Users\augus\Documents\Facultad\Taller-de-Lenguaje-II\tl2-tp1-2024-Augmait4\JSON\cadetes.json");
 
         }
         if (opcionArchivo == 2)
         {
-            cadeteria = archivoCvs.LeerCadeteria(@"C:\Users\augus\OneDrive\Documents\Estudios Facultad\Taller de Lenguajes II\tl2-tp1-2024-Augmait4\CSV\cadeteria.csv");
-            cadeteria.ListadoCadetes = archivoCvs.LeerCadetes(@"C:\Users\augus\OneDrive\Documents\Estudios Facultad\Taller de Lenguajes II\tl2-tp1-2024-Augmait4\CSV\cadetes.csv");
+            cadeteria = archivoCvs.LeerCadeteria(@"C:\Users\augus\Documents\Facultad\Taller-de-Lenguaje-II\tl2-tp1-2024-Augmait4\CSV\cadeteria.csv");
+            cadeteria.ListadoCadetes = archivoCvs.LeerCadetes(@"C:\Users\augus\Documents\Facultad\Taller-de-Lenguaje-II\tl2-tp1-2024-Augmait4\CSV\cadetes.csv");
         }
         Cliente cliente = new Cliente("Juan Perez", "Calle Falsa 123", "123-456789", "Entre Calle Catamarca");
 
